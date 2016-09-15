@@ -17,26 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A1b-AL-USf">
-                                <rect key="frame" x="258" y="196" width="225" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="6Un-Vo-NXa" userLabel="mainStackView">
+                                <rect key="frame" x="200" y="203" width="200" height="229"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f8q-Bw-NzZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="225" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iyd-GD-wmp" userLabel="topStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uL2-de-tKw">
-                                        <rect key="frame" x="72" y="60" width="81" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4pG-kN-RhF" userLabel="bottomStackView">
+                                        <rect key="frame" x="0.0" y="119" width="200" height="110"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A1b-AL-USf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bes-Gd-BWz"/>
-                            <constraint firstItem="A1b-AL-USf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QJZ-g0-nEQ"/>
+                            <constraint firstItem="6Un-Vo-NXa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="747-Mn-IKB"/>
+                            <constraint firstItem="6Un-Vo-NXa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bQS-LB-mPk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="topStackView" destination="f8q-Bw-NzZ" id="9C1-dl-Dqn"/>
+                        <outlet property="bottomStackView" destination="4pG-kN-RhF" id="O3E-5L-dPO"/>
+                        <outlet property="topStackView" destination="iyd-GD-wmp" id="7TI-Qr-NIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
