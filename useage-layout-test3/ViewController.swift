@@ -17,13 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bottomStackView: UIStackView!
     
-    
-    
-    // Create a horizontal stackview
-    //let horizontalStackView = UIStackView()
-    
-    
-    // Set up a UILabel to style and add programmatically later
+    @IBOutlet weak var lastStackView: UIStackView!
     
     
     // For convenience the words are added as separate indicies; this will be a sentence that will be parsed according to the occurrence of a space in future
@@ -37,18 +31,24 @@ class ViewController: UIViewController {
 
         var lineWidth: CGFloat = 0
         
+        var secondLineWIdth: CGFloat = 0
+        
         // Set maximum width allowed until you force label into a new stack view
         // Calculate device size
         
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         
-        let maximumAllowedLineWidth: CGFloat = width * 0.8 // Might have to reset this to recalculate upon rotation
+        // This formulation will be redundant when you place mainStackView in a main view container. Then, your measurements will be referencing the container width, which will
+        // vary according to screen orientation presumably
+        let maximumAllowedLineWidth: CGFloat = width * 0.8
         
         print("Calculated Maximum Line Width is \(maximumAllowedLineWidth)")
         
-        for i in 0..<outputArray.count {
+        var stackViewToAddOnto = 1
         
+        for i in 0..<outputArray.count {
+            
             let outputLabel = UILabel()
             
             outputLabel.font = UIFont(name: "Futura-Medium", size: 24.0)
@@ -59,18 +59,33 @@ class ViewController: UIViewController {
             
             print(labelWidth)
             
-            if lineWidth + labelWidth < maximumAllowedLineWidth {
+            // TODO: This isn't quite working, because you keep changing stackViewToAddOnto by 1 on every loop, therefore you can use that to judge when to go to the third line
+            if stackViewToAddOnto == 1 && lineWidth + labelWidth < maximumAllowedLineWidth {
             
                 topStackView.addArrangedSubview(outputLabel)
+                
+                lineWidth += labelWidth
             
             } else {
             
-                bottomStackView.addArrangedSubview(outputLabel)
+                stackViewToAddOnto += 1
+                
+                if secondLineWIdth + labelWidth < maximumAllowedLineWidth {
+                
+                    bottomStackView.addArrangedSubview(outputLabel)
+                    
+                    secondLineWIdth += labelWidth
+                    
+                } else {
+                    
+                    lastStackView.addArrangedSubview(outputLabel)
+                    
+                
+                
+                }
             
             }
             
-            lineWidth += labelWidth
-        
         }
         
     }
